@@ -1,0 +1,143 @@
+/**
+ * @description       : Base styling for the Builder component
+ * @author            : dalton@bluecitystudios.com
+ * @group             :
+ * @last modified on  : 10/3/2024
+ * @last modified by  : dalton@bluecitystudios.com
+ **/
+
+.row {
+    display: flex;
+    min-height: 50px;
+    width: 100%;
+}
+
+.content {
+    position: relative;
+    min-height: 50px;
+    min-width: 50px; /* Default width */
+    overflow: hidden;
+    /* Default background color */
+    background-color: white;
+    /* Ensure the resizing happens smoothly */
+    /* transition: width 0.2s ease, height 0.2s ease; */
+}
+
+.resizer {
+    position: absolute;
+    /* Optional: for visual feedback */
+    background: rgba(0, 0, 0, 0.2); 
+    z-index: 10; /* Ensure resizers are on top */
+}
+
+.resizer-horizontal {
+    height: 100%;
+    width: 5px; /* Width of the horizontal resize handle */
+    cursor: ew-resize;
+}
+
+.resizer-vertical {
+    height: 5px; /* Height of the vertical resize handle */
+    width: 100%;
+    cursor: ns-resize;
+}
+
+.resizer-corner {
+    height: 10px;
+    width: 10px; /* Adjust the size of the corner resizers */
+    background: rgba(0, 0, 0, 0.3); /* More visible for corner resizers */
+    cursor: nwse-resize; /* Diagonal resize cursor */
+}
+
+.resizer-right {
+    right: 0;
+    top: 0;
+}
+
+.resizer-left {
+    left: 0;
+    top: 0;
+}
+
+.resizer-top {
+    top: 0;
+    left: 0;
+}
+
+.resizer-bottom {
+    bottom: 0;
+    left: 0;
+}
+
+.resizer-bottom-right {
+    right: 0;
+    bottom: 0;
+}
+
+.resizer-bottom-left {
+    left: 0;
+    bottom: 0;
+}
+
+.resizer-top-right {
+    right: 0;
+    top: 0;
+}
+
+.resizer-top-left {
+    left: 0;
+    top: 0;
+}
+
+.component-panel {
+    margin-right: 5%;
+    padding: 10px;
+    border-radius: 5px;
+    height: 100%;
+    width: 95%;
+    background-color: white;
+}
+
+.component-card {
+    text-align: center;
+    border: 1px solid rgb(100, 100, 100);
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 10px;
+    cursor: grab;
+}
+
+.component-card:hover {
+    background-color: lightblue;
+}
+
+.builder-panel {
+    height: 100%;
+    width: 100%;
+}
+
+.style-panel {
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    background-color: white;
+}
+
+.style-header {
+    display: flex;
+    justify-content: flex-start;
+}
+
+/* Override standard CSS styling */
+
+h1 {
+    font-size: 1.1rem;
+}
+
+p {
+    font-size: 0.85rem;
+}
+
+hr {
+    margin: 5px 0px;
+}
