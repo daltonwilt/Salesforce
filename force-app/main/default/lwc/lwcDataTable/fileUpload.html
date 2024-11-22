@@ -1,0 +1,14 @@
+<template>
+    <template if:true={typeAttributes.doUpload}>
+        <lightning-file-upload
+            name="File Uploader"
+            accept={typeAttributes.acceptedFormats}
+            record-id={value}
+            multiple>
+        </lightning-file-upload>
+    </template>
+    <template if:false={typeAttributes.doUpload}>
+        Required Documents are provided!
+    </template>
+    
+</template>

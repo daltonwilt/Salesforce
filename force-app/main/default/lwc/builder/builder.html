@@ -1,0 +1,65 @@
+<template>
+    <div class="style-panel">
+        <div class="style-header">
+            <h1 style="margin-right: 25px;">Style Panel</h1>
+            <lightning-button-icon icon-name="utility:settings" variant="bare" onclick={toggleStylePanel} size="medium"></lightning-button-icon>
+        </div>
+        <div if:true={isStylePanelVisible}>
+            <hr/>
+
+            <!-- Add any fields related to the content object record we are working in so they can be visible and editable -->
+        </div>
+    </div>
+    <div class="slds-grid slds-wrap" style="margin-top: 25px;">
+
+        <div class="component-container slds-size_2-of-12">
+            <div class="component-panel">
+                <h1>Components Panel</h1>
+                <hr/>
+
+                <!-- Add all available components that can be rendered here that are LWCs -->
+                <!-- Look into rendering other custom components in the future such as VG Pages and Aura Components -->
+                <div class="component-selection">
+                    <template for:each={builderComponents} for:item="component">
+                        <div key={component.Id} class="component-card" data-id={component.Id} ondragstart={onDragStart} draggable="true">
+                            <p>{component.Name}</p>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </div>
+
+        <div class="builder-container slds-size_10-of-12">
+            <div class="builder-panel">
+                <template if:true={builder}>
+                    <!-- Replace for each page with currPage -->
+                    <template for:each={page.Builder_Rows__r} for:item="row">
+                        <div key={row.Id} class="row" data-id={row.Id}>
+                            <template for:each={row.Builder_Columns__r} for:item="column">
+                                <template for:each={column.Builder_Contents__r} for:item="content">
+                                    <div key={content.Id} class="content" data-id={content.Id}>
+                                        <div class="resizer resizer-horizontal resizer-left" data-id={content.Id}></div>
+                                        <div class="resizer resizer-vertical resizer-top" data-id={content.Id}></div>
+                                        <lwc:component lwc:is={componentConstructor}></lwc:component>
+                                        <div class="resizer resizer-horizontal resizer-right" data-id={content.Id}></div>
+                                        <div class="resizer resizer-vertical resizer-bottom" data-id={content.Id}></div>
+        
+                                        <!-- New corner resizers -->
+                                        <div class="resizer resizer-corner resizer-bottom-right" data-id={content.Id}></div>
+                                        <div class="resizer resizer-corner resizer-bottom-left" data-id={content.Id}></div>
+                                        <div class="resizer resizer-corner resizer-top-right" data-id={content.Id}></div>
+                                        <div class="resizer resizer-corner resizer-top-left" data-id={content.Id}></div>
+                                    </div>
+                                </template>
+                            </template>
+                        </div>
+                    </template>
+                </template>
+                <template if:false={builder}>
+                    <h1>There was no Builder components found!</h1>
+                </template>
+            </div>
+        </div>
+
+    </div>
+</template>
