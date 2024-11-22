@@ -1,0 +1,17 @@
+.docusign-container {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+}
+
+.field-container {
+    height: 100%;
+    width: 25%;
+    margin: 25px;
+}
+
+.template-container {
+    height: 100%;
+    width: 75%;
+}
+
