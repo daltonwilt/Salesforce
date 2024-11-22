@@ -9,15 +9,15 @@ public class HttpService {
     public class CustomException extends Exception {}
 
     // DocuSign Integration Credentials
-    private static final String ACCOUNT_ID = '63d43193-6ee3-4458-a305-d835be6df736';
-    private static final String BASE_URL = 'callout:DSApi';
+    private static final String ACCOUNT_ID = 'docusign_accountid';
+    private static final String BASE_URL = 'callout:named_credential';
     // private static final String BASE_URL = 'https://na4.docusign.net';
-    private static final String USERNAME = 'jonathan.padilla@parklandusa.com';
-    private static final String PASSWORD = 'Parkland2022';
+    private static final String USERNAME = 'example@mail.com;
+    private static final String PASSWORD = 'password12';
 
-    // private static final String SECRET_KEY = '355150e5-bfb3-4b90-9f03-1e0fe069ccc7';
-    private static final String INTEGRATION_KEY = 'ee1e6a3a-5660-4aa6-ba5e-34d1509500cf';
-    // private static final String TEMPLATE_ID = '6f15a727-50a5-4fcf-871d-59a2baee716a';
+    // private static final String SECRET_KEY = 'docusign_secret_key';
+    private static final String INTEGRATION_KEY = 'docusign_integration_key';
+    // private static final String TEMPLATE_ID = 'template_id';
 
     // TODO:
     // - Add Wrapper for Header values
