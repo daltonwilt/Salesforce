@@ -42,7 +42,7 @@ public without sharing class Utility {
 
         SObject record = Schema.getGlobalDescribe().get(objectType).newSObject();
         for(String key : mRecord.keySet()) {
-            if(key == 'attributes')
+            if(key == 'attributes' || mRecord.get(key) == null)
                 continue;
 
             Schema.DescribeFieldResult fieldResult = fm.get(key.toLowerCase().trim()).getDescribe();
