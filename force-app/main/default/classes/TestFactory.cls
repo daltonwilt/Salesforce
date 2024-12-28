@@ -56,6 +56,52 @@ global class TestFactory {
         return resultMap;
     }
 
+    public static map<String, Object> generatePrice(){
+        map<String,Object> resultMap = new map<String,Object>();
+        
+        Price__c p = new Price__c(Name = 'Price Test', Type__c = 'Tankwagon');
+        insert p;
+
+        resultMap.put('result', p);
+        return resultMap;
+    }
+
+    public static map<String, Object> generatePriceEntry(){
+        Account a = (Account)generateAccount().get('result');
+        Opportunity o = (Opportunity)generateOpportunity().get('result');
+        Price__c p = (Price__c)generatePrice().get('result');
+        return generatePriceEntry(a.Id, o.Id, p.Id);
+    }
+
+    public static map<String, Object> generatePriceEntry(String accountId, String opportunityId, String priceId){
+        map<String,Object> resultMap = new map<String,Object>();
+        
+        Price_Entry__c p = new Price_Entry__c(Qualified_Lead__c = accountId, Opportunity__c = opportunityId, Price__c = priceId);
+        insert p;
+        
+        resultMap.put('result', p);
+        resultMap.put('AccountId', accountId);
+        resultMap.put('OpportunityId', opportunityId);
+        resultMap.put('PriceId', priceId);
+        return resultMap;
+    }
+
+    public static map<String, Object> generateProductLine(){
+        Opportunity o = (Opportunity)generateOpportunity().get('result');
+        return generateProductLine(o.Id);
+    }
+    
+    public static map<String, Object> generateProductLine(String opportunityId){
+        map<String,Object> resultMap = new map<String,Object>();
+        
+        Product_Line__c pl = new Product_Line__c(Name = 'Product Line Test', Opportunity__c = opportunityId);
+        insert pl;
+
+        resultMap.put('result', pl);
+        resultMap.put('OpportunityId', opportunityId);
+        return resultMap;
+    }
+
     public static map<String, Object> generateProduct(){
         map<String,Object> resultMap = new map<String,Object>();
         
@@ -87,7 +133,7 @@ global class TestFactory {
     public static map<String, Object> generateOrder(String accountId, String opportunityId, String contactId){
         map<String,Object> resultMap = new map<String,Object>();
         
-        Order o = new Order(AccountId = accountId, OpportunityId = opportunityId, ShipToContactId = contactId, Pricebook2Id = Test.getStandardPricebookId(), Status = 'Draft', EffectiveDate = Date.today());
+        Order o = new Order(AccountId = accountId, OpportunityId = opportunityId, ShipToContactId = contactId, Pricebook2Id = Test.getStandardPricebookId(), Status = 'Draft', EffectiveDate = Date.today(), Delivery_Window__c = 'undefined');
         insert o;
 
         resultMap.put('result', o);
