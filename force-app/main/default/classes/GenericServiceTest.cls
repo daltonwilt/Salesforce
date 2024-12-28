@@ -1,18 +1,16 @@
-/**
- * @description       :
- * @author            : dalton@bluecitystudios.com
- * @group             :
- * @last modified on  : 10/3/2024
- * @last modified by  : dalton@bluecitystudios.com
- **/
 @isTest
 private class GenericServiceTest {
 	@isTest
     private static void test_search(){
         Map<String,Object> resultMap = TestFactory.generateAccount();
         Account a = (Account)resultMap.get('result');
-        GenericService.search('Account', new List<String>{'Name'}, 'test');
-        GenericService.search('Account', new List<String>{'Name'}, '');
+        GenericService.lookup('Account', new List<String>{'Name'}, 'test');
+        GenericService.lookup('Account', new List<String>{'Name'}, '');
+    }
+
+    @isTest
+    private static void test_getPiclistValues(){
+        GenericService.getPiclistValues('Account', new List<String>{'Type'});
     }
 
     @isTest
