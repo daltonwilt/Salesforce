@@ -1,0 +1,23 @@
+<template>
+    <template if:false={modal}>
+        <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <div class="slds-modal__content slds-p-around_medium">
+                    <p>{message}</p>
+                    <div class="progress-bar">
+                        <div class="progress-bar__value"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+    <template if:true={modal}>
+        <div style="margin: 25px;">
+            <p>{message}</p>
+            <div class="progress-bar">
+                <div class="progress-bar__value"></div>
+            </div>
+        </div>
+    </template>
+</template>
