@@ -1,5 +1,5 @@
 /**
- * @description       :
+ * @description       : Utility worker methods for the Generic generilzation methods
  * @author            : dalton@bluecitystudios.com
  * @group             :
  * @last modified on  : 10/3/2024
@@ -50,7 +50,7 @@ public without sharing class Utility {
             String type = fm.get(key.toLowerCase().trim()).getDescribe().getType().name();
             Object value = formatValue(type, String.valueOf(mRecord.get(key)));
 
-            if(fieldResult.isUpdateable())
+            if(fieldResult.isCreateable())
                 record.put(key, value);
         }
 
@@ -172,28 +172,40 @@ public without sharing class Utility {
      * as into a Dynamic Query
      * 
      * @param id of SObject that we want to query all field API names for
+     * @param rFields List of reference fields that we want to query for\
      * @return A formatted string of comma separated API Names for the passed param
      */
-    public static String getDirectFieldsById(Id id) {
+    public static String getFieldsById(Id id, list<String> rFields) {
+        String objectType = id.getSObjectType().getDescribe().getName();
+
         // Get all the fields for the SObject
-        Map<String, Schema.SObjectField> fields = getDescribeFields(id.getSObjectType().getDescribe().getName());
-        
-        return formatFields(fields);
+        Map<String, Schema.SObjectField> fields = getDescribeFields(objectType);
+        String fFields = formatFields(fields);
+
+        if(!rFields.isEmpty())
+            fFields += ', ' + getReferenceFields(objectType, rFields);
+
+        return fFields;
     }
 
 
     /**
-     * This method is used for gathering all direct readable field API names from an SObject a string to pass
+     * This method is used for gathering all readable field API names from an SObject a string to pass
      * as into a Dynamic Query
      * 
      * @param objectType Type of SObject that we want to query all field API names for
+    * @param rFields List of reference fields that we want to query for
      * @return A formatted string of comma separated API Names for the passed param
      */
-    public static String getDirectFieldsByType(String objectType) {
+    public static String getFieldsByType(String objectType, list<String> rFields) {
         // Get all the fields for the SObject
         Map<String, Schema.SObjectField> fields = getDescribeFields(objectType);
+        String fFields = formatFields(fields);
+
+        if(!rFields.isEmpty())
+            fFields += ', ' + getReferenceFields(objectType, rFields);
         
-        return formatFields(fields);
+        return fFields;
     }
 
     /**
@@ -201,47 +213,46 @@ public without sharing class Utility {
      * as into a Dynamic Query including the reference relationship fields
      * 
      * @param objectType Type of SObject that we want to query all field API names for
+     * @param rFields List of reference fields that we want to query for
      * @return A formatted string of comma separated API Names for the passed param
      * @TODO:
      * - break this down into worker methods
      */
-    // public static String getAllFieldsByType(String objectType) {
-    //     // Get all the fields for the SObject
-    //     Map<String, Schema.SObjectField> fields = getDescribeFields(objectType);
+    public static String getReferenceFields(String objectType, list<String> rFields) {
+        // Get all the fields for the SObject
+        Map<String, Schema.SObjectField> fields = getDescribeFields(objectType);
         
-    //     // List to store field names
-    //     List<String> fieldNames = new List<String>();
+        // List to store field names
+        List<String> fieldNames = new List<String>();
     
-    //     // Iterate through the fields
-    //     for (String fieldName : fields.keySet()) {
-    //         Schema.DescribeFieldResult fieldDescribe = fields.get(fieldName).getDescribe();
+        // Iterate through the fields
+        for (String fieldName : fields.keySet()) {
+            if(!rFields.contains(fieldName)) continue;
+
+            Schema.DescribeFieldResult fieldDescribe = fields.get(fieldName).getDescribe();
     
-    //         // Add the field name to the list
-    //         fieldNames.add(fieldDescribe.getName());
-    
-    //         // Check if the field is a lookup/reference field
-    //         if (fieldDescribe.getType() == Schema.DisplayType.Reference) {
-    //             // Get the referenced/parent object types (there could be multiple, such as with polymorphic lookups)
-    //             List<Schema.SObjectType> referenceTo = fieldDescribe.getReferenceTo();
+            // Check if the field is a lookup/reference field
+            if (fieldDescribe.getType() == Schema.DisplayType.Reference) {
+                // Get the referenced/parent object types (there could be multiple, such as with polymorphic lookups)
+                List<Schema.SObjectType> referenceTo = fieldDescribe.getReferenceTo();
                 
-    //             // Iterate over the referenced objects
-    //             for (Schema.SObjectType parentObject : referenceTo) {
-    //                 // Get the fields from the parent object
-    //                 Map<String, Schema.SObjectField> parentFields = getDescribeFields(parentObject.getDescribe().getName());
+                // Iterate over the referenced objects
+                for (Schema.SObjectType parentObject : referenceTo) {
+                    // Get the fields from the parent object
+                    Map<String, Schema.SObjectField> parentFields = getDescribeFields(parentObject.getDescribe().getName());
                     
-    //                 // Add the parent fields with the proper notation (e.g., Parent__r.FieldName)
-    //                 for (String parentFieldName : parentFields.keySet()) {
-    //                     Schema.DescribeFieldResult parentFieldDescribe = parentFields.get(parentFieldName).getDescribe();
-    //                     fieldNames.add(fieldDescribe.getName() + '.' + parentFieldDescribe.getName());
-    //                 }
-    //             }
-    //         }
-    //     }
+                    // Add the parent fields with the proper notation (e.g., Parent__r.FieldName)
+                    for (String parentFieldName : parentFields.keySet()) {
+                        Schema.DescribeFieldResult parentFieldDescribe = parentFields.get(parentFieldName).getDescribe();
+                        String referenceName = fieldDescribe.getName().substring(0, fieldDescribe.getName().length() - 1) + 'r';
+                        fieldNames.add(referenceName + '.' + parentFieldDescribe.getName());
+                    }
+                }
+            }
+        }
     
-    //     // Join the field names into a comma-separated string
-    //     String sFieldNames = String.join(fieldNames, ', ');
-    //     return sFieldNames;
-    // }
+        return String.join(fieldNames, ', ');
+    }
 
     /**
      * This method is used for formatting a map of Schema.SObjectFields into a string
