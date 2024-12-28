@@ -1,0 +1,179 @@
+:host {
+    --sizeSmall: 15rem;
+    --sizeLarge: 25rem;
+
+    --spacingSmall: 0.75rem;
+    --spacingXSmall: 0.5rem;
+    --spacingXXSmall: 0.25rem;
+    --spacingNone: 0;
+
+    --borderRadiusMedium: 0.25rem;
+
+    --squareIconMedium: 1rem;
+
+    --squareIconMediumBoundary: 2rem;
+    
+    --borderRadiusCircle: 50%;
+
+    --fontSizeSmall: 0.75rem;
+    --fontSizeSMedium: 0.825rem;
+    --fontSizeMedium: 1rem;
+    --fontSizeLarge: 1.25rem;
+
+    --fontWeightRegular: 400;
+    --fontWeightBold: 700;
+
+    --colorTextLabel: rgba(0, 0, 0, 0.6);
+
+    --durationSlowly: 0.4s;
+}
+
+.assistiveText {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+    margin: -1px;
+}
+
+.picklist__label {
+    font-size: var(--fontSizeSmall, 0.75rem);
+    font-weight: var(--fontWeightRegular, 400);
+}
+
+.page {
+    width: 304px;
+    right: 0;
+    bottom: 0;
+    top: 70px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.datePicker {
+    padding: 0;
+    font-size: var(--fontSizeSmall, 0.75rem);
+}
+
+.datePicker thead>tr>th {
+    padding: var(--spacingXSmall, 0.5rem);
+    font-weight: var(--fontWeightRegular, 400);
+    color: var(--colorTextLabel, rgba(0, 0, 0, 0.6));
+}
+
+.datePicker tbody>tr>td {
+    padding: var(--spacingXXSmall, 0.25rem);
+    font-size: var(--fontSizeSmall, 0.75rem);
+    text-align: center;
+}
+
+.datePicker tbody>tr>td>.day {
+    display: block;
+    position: relative;
+    border-radius: var(--borderRadiusCircle, 50%);
+
+    width: var(--squareIconMediumBoundary, 2rem);
+    min-width: var(--squareIconMediumBoundary, 2rem);
+    height: var(--squareIconMediumBoundary, 2rem);
+    line-height: var(--squareIconMediumBoundary, 2rem);
+    margin: auto;
+
+    cursor: pointer;
+}
+
+.datePicker tbody>tr>td>.day:hover {
+    background-color: rgba(210, 135, 35, 0.1);
+}
+
+.uiDatePicker {
+    display: block !important;
+    flex: 0 0 auto;
+    opacity: 1;
+    z-index: 0;
+
+    padding: 10px;
+    border: none;
+    box-shadow: none;
+}
+
+.uiDatePicker--default {
+    position: relative;
+    transform: none;
+    float: left;
+
+    border-radius: var(--borderRadiusMedium, 0.25rem);
+    margin-top: var(--spacingNone, 0);
+    min-width: var(--sizeSmall, 15rem);
+    max-width: var(--sizeLarge, 25rem);
+
+    font-size: var(--fontSizeSmall, 0.75rem);
+    font-weight: var(--fontWeightRegular, 400);
+}
+
+.uiDatePicker--default .dateBar {
+    display: flex;
+    position: relative;
+    padding: var(--spacingXSmall, 0.25rem);
+}
+
+.uiDatePicker--default .dateBar__filter--month {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 10px;
+}
+
+.uiDatePicker--default .dateBar .prevLinks {
+    float: left;
+    text-align: left;
+    margin-left: var(--spacingSmall, 0.75rem);
+}
+
+.uiDatePicker--default .dateBar .nextLinks {
+    float: right;
+    text-align: right;
+    margin-right: var(--spacingSmall, 0.75rem);
+    order: 3;
+}
+
+.uiDatePicker--default .dateBar .prevMonth {
+    background: url(/projRes/ui-global-components/img/left.svg) no-repeat;
+    position: absolute;
+    width: var(--squareIconMedium, 0.875rem);
+    height: var(--squareIconMedium, 0.875rem);
+    bottom: var(--squareIconMedium, 0.875rem);
+}
+
+.uiDatePicker--default .dateBar .nextMonth {
+    background: url(/projRes/ui-global-components/img/right.svg) no-repeat;
+    position: absolute;
+    width: var(--squareIconMedium, 0.875rem);
+    height: var(--squareIconMedium, 0.875rem);
+    bottom: var(--squareIconMedium, 0.875rem);
+}
+
+.uiDatePicker--default .dateBar__filter--month .month {
+    line-height: var(--squareIconMedium, 1rem);
+    font-size: var(--fontSizeSmall, 0.75rem);
+    text-transform: uppercase;
+    padding-left: var(--spacingSmall, 0.75rem);
+}
+
+.dateBar__filter--year {
+    flex-shrink: 0;
+}
+
+
+
+/* SLDS Override */
+
+.slds-select {
+    appearance: none;
+    padding: var(--spacingNone, 0) 30px var(--spacingNone, 0) var(--squareIconMedium, 0.875rem);
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNzYgMjEwIj48cGF0aCBmaWxsPSIjNTU2OThkIiBkPSJNNTYgNTBoMTY0YzQgMCA4IDYgNCAxMGwtODAgOThjLTMgMy05IDMtMTIgMEw1MiA2MGMtNC00LTEtMTAgNC0xMHoiLz48L3N2Zz4=);
+    background-repeat: no-repeat;
+    background-position: 95% 50%;
+    background-size: var(--fontSizeSMedium, 0.8125rem) var(--fontSizeSMedium, 0.8125rem), 100% 100%;  
+}

@@ -1,0 +1,62 @@
+<template>
+	<div class="page">
+		<h3 style="text-align: center;">{day.dayName}, {day.monthName} {day.day}</h3>
+		<div class="uiDatePicker--default uiDatePicker">
+			<div class="datePicker">
+				<div class="dateBar">
+					<div class="dateBar__filter--month slds-grid slds-grid_align-spread slds-grow">
+						<div class="prevLinks slds-align-middle">
+							<a data-name="prevMonth" title="Go to previous month" class="navLink prevMonth" onclick={navigate}>
+								<span class="assistiveText">Go to previous month</span>
+							</a>
+						</div>
+						<div class="nextLinks slds-align-middle">
+							<a data-name="nextMonth" title="Go to next month" class="navLink nextMonth" onclick={navigate}>
+								<span class="assistiveText">Go to next month</span>
+							</a>
+						</div>
+						<h2 class="month">{monthLabel}</h2>
+					</div>
+					<div class="dateBar__filter--year">
+						<select class="slds-select picklist__label" onchange={select}>
+							<template for:each={yearOptions} for:item="year">
+								<option key={year.value} value={year.value} selected={year.selected}>{year.label}</option>
+							</template>
+						</select>
+					</div>
+				</div>
+				<div class="uiDatePickerGrid--default uiDatePickerGrid">
+					<table role="grid" class="calendarGrid">
+						<thead>
+							<tr>
+								<template for:each={weekdays} for:item="weekday">
+									<th key={weekday} scope="col" class="dayOfWeek">{weekday}</th>
+								</template>
+							</tr>
+						</thead>
+						<tbody>
+							<!-- template for each row of weeks in the month -->
+							<template for:each={calendar} for:item="week">
+							 	<!-- template for each day in the week -->
+								 <tr key={week} class="calendarRow">
+									<template for:each={week} for:item="day">
+										<template if:true={day.isCurrentMonth}>
+											<td key={day.day} role="gridcell" tabindex="-1" class="uiDayInMonthCell" data-id={day.id} data-name="day" onclick={navigate}>
+												<span class="day uiDayInMonthCell--default">{day.day}</span>
+											</td>
+										</template>
+										<template if:false={day.isCurrentMonth}>
+											<td key={day.day} role="gridcell" tabindex="-1" class="slds-disabled-text uiDayInMonthCell" data-id={day.id} data-name="day" onclick={navigate}>
+												<span class="day uiDayInMonthCell--default">{day.day}</span>
+											</td>
+										</template>
+									</template>
+								</tr>
+							</template>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>

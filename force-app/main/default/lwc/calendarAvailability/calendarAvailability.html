@@ -1,0 +1,42 @@
+<template>
+    <template if:true={day}>
+        <div class="uiAppSelection--default uiAppSelection">
+            <table role="grid" class="weekGrid">
+                <thead>
+                    <tr>
+                        <template for:each={weekdays} for:item="weekday">
+                            <th key={weekday} scope="col" class="dayOfWeek">{weekday}</th>
+                        </template>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- template for each row of weeks in the month -->
+                    <template for:each={week} for:item="day">
+                         <!-- template for each day in the week -->
+                         <tr key={day} class="calendarRow">
+                            <!-- <template for:each={week} for:item="day">
+                                <template if:true={day.isCurrentMonth}>
+                                    <td key={day.day} role="gridcell" tabindex="-1" class="uiDayInMonthCell" data-id={day.id} data-name="day" onclick={navigate}>
+                                        <span class="day uiDayInMonthCell--default">{day.day}</span>
+                                    </td>
+                                </template>
+                                <template if:false={day.isCurrentMonth}>
+                                    <td key={day.day} role="gridcell" tabindex="-1" class="slds-disabled-text uiDayInMonthCell" data-id={day.id} data-name="day" onclick={navigate}>
+                                        <span class="day uiDayInMonthCell--default">{day.day}</span>
+                                    </td>
+                                </template>
+                            </template> -->
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+    </template>
+
+    <!-- Component to show load state -->
+    <template if:true={initializing}>
+        <div class="popup-container">
+            <c-progress-state message={message} progress={progress}></c-progress-state>
+        </div>
+    </template>
+</template>

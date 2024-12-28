@@ -1,0 +1,55 @@
+:host {
+    --sizeSmall: 15rem;
+    --sizeLarge: 25rem;
+
+    --spacingSmall: 0.75rem;
+    --spacingXSmall: 0.5rem;
+    --spacingXXSmall: 0.25rem;
+    --spacingNone: 0;
+
+    --borderRadiusMedium: 0.25rem;
+
+    --squareIconMedium: 1rem;
+
+    --squareIconMediumBoundary: 2rem;
+    
+    --borderRadiusCircle: 50%;
+
+    --fontSizeSmall: 0.75rem;
+    --fontSizeSMedium: 0.825rem;
+    --fontSizeMedium: 1rem;
+    --fontSizeLarge: 1.25rem;
+
+    --fontWeightRegular: 400;
+    --fontWeightBold: 700;
+
+    --colorTextLabel: rgba(0, 0, 0, 0.6);
+
+    --durationSlowly: 0.4s;
+}
+
+.assistiveText {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+    margin: -1px;
+}
+
+.picklist__label {
+    font-size: var(--fontSizeSmall, 0.75rem);
+    font-weight: var(--fontWeightRegular, 400);
+}
+
+.uiAppSelection {
+    display: block !important;
+    flex: 0 0 auto;
+    opacity: 1;
+    z-index: 0;
+
+    padding: 10px;;
+    border: none;
+    box-shadow: none;
+}
