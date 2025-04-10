@@ -36,6 +36,16 @@ export function notification(ntf_Title, ntf_Message, ntf_Variant, ntf_Duration) 
     dispatchEvent(evt);
 }
 
+export function cEvent(evt_Name, evt_Bubbles, evt_Composed, evt_Cancelable, evt_Detail) {
+    const event = new CustomEvent(evt_Name, {
+        bubbles: evt_Bubbles,
+        composed: evt_Composed,
+        cancelable: evt_Cancelable,
+        detail: evt_Detail
+    });
+    this.dispatchEvent(event);
+}
+
 export function generateYears(currentYear, range) {
     const years = [];
     for (let year = currentYear - range; year <= currentYear + range; year++) {
