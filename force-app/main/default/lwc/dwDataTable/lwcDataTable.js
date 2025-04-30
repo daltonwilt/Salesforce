@@ -16,7 +16,7 @@ import cImageTemplate from './image.html';
 import cLookup from './lookup.html';
 import cPicklistTemplate from './picklist.html';
 
-export default class DwDataTable extends LightningDatatable {
+export default class LwcDataTable extends LightningDatatable {
     static customTypes = {
         cAddress: {
             template: cNonEditTemplate,
