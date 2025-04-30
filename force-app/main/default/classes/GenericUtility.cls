@@ -5,7 +5,7 @@
  * @last modified on  : 10/3/2024
  * @last modified by  : dalton@bluecitystudios.com
  **/
-public without sharing class Utility {
+public without sharing class GenericUtility {
     public class DateException extends Exception {}
 
     /**
