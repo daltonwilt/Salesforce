@@ -11,10 +11,10 @@ public without sharing class GenericService {
     @AuraEnabled
     public static List<Customer__c> search(String objectType, Object searchConfig, List<String> rFields) {
         // try {
-            Map<String, Object> config = Utility.deserializeRecord(searchConfig);
+            Map<String, Object> config = GenericUtility.deserializeRecord(searchConfig);
 
             // Dynamically build a SOQL query to retrieve all fields
-            String query = 'SELECT '+ Utility.getFieldsByType(objectType, rFields) +' FROM '+ objectType;
+            String query = 'SELECT '+ GenericUtility.getFieldsByType(objectType, rFields) +' FROM '+ objectType;
 
             List<String> conditions = new List<String>();
 
@@ -148,7 +148,7 @@ public without sharing class GenericService {
     public static List<SObject> getRecords(Id id, Id parentId, String filter){
         // try {
             // Dynamically build a SOQL query to retrieve all fields
-            String query = 'SELECT '+ Utility.getFieldsById(id, null) +' FROM '+ id.getSObjectType().getDescribe().getName() +' WHERE '+ filter;
+            String query = 'SELECT '+ GenericUtility.getFieldsById(id, null) +' FROM '+ id.getSObjectType().getDescribe().getName() +' WHERE '+ filter;
             
             // Execute the query and retrieve the record
             List<SObject> result = Database.query(query);
@@ -170,7 +170,7 @@ public without sharing class GenericService {
     public static SObject getRecordById(Id id, String filter, String orderBy){
         try {
             // Dynamically build a SOQL query to retrieve all fields
-            String query = 'SELECT '+ Utility.getFieldsById(id, null) +' FROM '+ id.getSObjectType().getDescribe().getName();
+            String query = 'SELECT '+ GenericUtility.getFieldsById(id, null) +' FROM '+ id.getSObjectType().getDescribe().getName();
             if(filter != null) query = query +' WHERE '+ filter;
             if(orderBy != null) query = query +' ORDER BY '+ orderBy;
             query = query + ' LIMIT 1';
@@ -194,7 +194,7 @@ public without sharing class GenericService {
     public static List<SObject> getRecordsById(Id id, String filter, String orderBy){
         // try {
             // Dynamically build a SOQL query to retrieve all fields
-            String query = 'SELECT '+ Utility.getFieldsById(id, null) +' FROM '+ id.getSObjectType().getDescribe().getName();
+            String query = 'SELECT '+ GenericUtility.getFieldsById(id, null) +' FROM '+ id.getSObjectType().getDescribe().getName();
             if(filter != null) query = query +' WHERE '+ filter;
             if(orderBy != null) query = query +' ORDER BY '+ orderBy;
             
@@ -216,10 +216,10 @@ public without sharing class GenericService {
     @AuraEnabled
     public static SObject getRecordByType(String objectType, Object configFilter, String orderBy, List<String> rFields){
         // try {
-            Map<String, Object> config = Utility.deserializeRecord(configFilter);
+            Map<String, Object> config = GenericUtility.deserializeRecord(configFilter);
 
             // Dynamically build a SOQL query to retrieve all fields
-            String query = 'SELECT '+ Utility.getFieldsByType(objectType, rFields) +' FROM '+ objectType;
+            String query = 'SELECT '+ GenericUtility.getFieldsByType(objectType, rFields) +' FROM '+ objectType;
 
             if(configFilter != null) {
                 List<String> conditions = new List<String>();
@@ -247,10 +247,10 @@ public without sharing class GenericService {
     @AuraEnabled
     public static List<SObject> getRecordsByType(String objectType, Object configFilter, String orderBy, List<String> rFields){
         // try {
-            Map<String, Object> config = Utility.deserializeRecord(configFilter);
+            Map<String, Object> config = GenericUtility.deserializeRecord(configFilter);
 
             // Dynamically build a SOQL query to retrieve all fields
-            String query = 'SELECT '+ Utility.getFieldsByType(objectType, rFields) +' FROM '+ objectType;
+            String query = 'SELECT '+ GenericUtility.getFieldsByType(objectType, rFields) +' FROM '+ objectType;
 
             if(configFilter != null) {
                 List<String> conditions = new List<String>();
@@ -300,7 +300,7 @@ public without sharing class GenericService {
     public static Map<String, List<SObject>> getRelatedAllRecords(Id id){
         try {
             // Dynamically build a SOQL query to retrieve all fields
-            String query = 'SELECT '+ Utility.getFieldsById(id, null) +' FROM '+ id.getSObjectType().getDescribe().getName();
+            String query = 'SELECT '+ GenericUtility.getFieldsById(id, null) +' FROM '+ id.getSObjectType().getDescribe().getName();
             
             // Execute the query and retrieve the record
             Map<String, List<SObject>> result = new Map<String, List<SObject>>();
@@ -322,7 +322,7 @@ public without sharing class GenericService {
     @AuraEnabled
     public static void upsertRecord(Object data, String objectType) {
         // Create a SObject from data
-        SObject record = Utility.createSObject(data, objectType);
+        SObject record = GenericUtility.createSObject(data, objectType);
         try {
             // Attempt to upsert the SObject
             upsert record; 
@@ -341,7 +341,7 @@ public without sharing class GenericService {
     @AuraEnabled
     public static void upsertRecords(Object data, String objectType) {
         // Create a list of SObjects from data
-        List<SObject> records = Utility.createSObjects(data, objectType);
+        List<SObject> records = GenericUtility.createSObjects(data, objectType);
 
         try {
             // Attempt to upsert the list of SObjects
