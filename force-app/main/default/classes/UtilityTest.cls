@@ -1,10 +1,10 @@
 @isTest
-private class GenericUtilityTest {
+private class UtilityTest {
 	@isTest
     private static void test_createSObject(){
         Map<String,Object> resultMap = TestFactory.generateAccount();
         Account a = (Account)resultMap.get('result');
-        GenericUtility.createSObject(JSON.deserializeUntyped(JSON.serialize(a)), 'Account');
+        Utility.createSObject(JSON.deserializeUntyped(JSON.serialize(a)), 'Account');
     }
 
     @isTest
@@ -12,38 +12,38 @@ private class GenericUtilityTest {
         Map<String,Object> resultMap = TestFactory.generateAccount();
         Account a = (Account)resultMap.get('result');
         List<Account> accs = new List<Account>{a};
-        GenericUtility.createSObjects(JSON.deserializeUntyped(JSON.serialize(accs)), 'Account');
+        Utility.createSObjects(JSON.deserializeUntyped(JSON.serialize(accs)), 'Account');
     }
 
     @isTest
     private static void test_getDescribeObjectType(){
-        GenericUtility.getDescribeObjectType('Account');
+        Utility.getDescribeObjectType('Account');
     }
 
     @isTest
     private static void test_getDescribeObjectResult(){
-        GenericUtility.getDescribeObjectResult('Account');
+        Utility.getDescribeObjectResult('Account');
     }
 
     @isTest
     private static void test_getDescribeFields(){
-        GenericUtility.getDescribeFields('Account');
+        Utility.getDescribeFields('Account');
     }
 
     @isTest
     private static void test_getDirectFieldsById(){
         Map<String,Object> resultMap = TestFactory.generateAccount();
         Account a = (Account)resultMap.get('result');
-        GenericUtility.getDirectFieldsById(a.Id);
+        Utility.getDirectFieldsById(a.Id);
     }
 
     @isTest
     private static void test_getDirectFieldsByType(){
-        GenericUtility.getDirectFieldsByType('Account');
+        Utility.getDirectFieldsByType('Account');
     }
 
     @isTest
     private static void test_formatFields(){
-        GenericUtility.formatFields(GenericUtility.getDescribeFields('Account'));
+        Utility.formatFields(Utility.getDescribeFields('Account'));
     }
 }
