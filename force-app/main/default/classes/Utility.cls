@@ -2,7 +2,7 @@
  * @description       : General utility class for creating SObjects and deserializing JS Objects
  * @author            : dalton@bluecitystudios.com
  * @group             :
- * @last modified on  : 10/3/2024
+ * @last modified on  : 5/16/2025
  * @last modified by  : dalton@bluecitystudios.com
  **/
 public without sharing class Utility {
@@ -45,10 +45,6 @@ public without sharing class Utility {
         for(String key : mRecord.keySet()) {
             if(key == 'attributes' || mRecord.get(key) == null)
                 continue;
-
-                system.debug('key :: ' + key);
-                system.debug('value :: ' + mRecord.get(key));
-                system.debug('fm :: ' + fm);
 
             Schema.DescribeFieldResult fieldResult = fm.get(key.toLowerCase().trim()).getDescribe();
 
