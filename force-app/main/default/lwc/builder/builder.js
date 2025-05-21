@@ -8,11 +8,11 @@
 import { LightningElement, api } from 'lwc';
 import { loadStyle } from 'lightning/platformResourceLoader';
 
-/* Apex Imports */
+// Apex Imports
 import getBuilder from '@salesforce/apex/BuilderService.getBuilder';
 import getBuilderComponents from '@salesforce/apex/BuilderService.getBuilderComponents';
 
-/* Style Imports */
+// Resource Imports
 import BUILDER_STYLES from '@salesforce/resourceUrl/Builder';
 
 export default class Builder extends LightningElement {
