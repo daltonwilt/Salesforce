@@ -8,7 +8,7 @@
 import { LightningElement } from 'lwc';
 import { loadStyle } from 'lightning/platformResourceLoader';
 
-/* Style Imports */
+// Resource Imports
 import DOCUSIGN_STYLES from '@salesforce/resourceUrl/DocusignStyles';
 
 export default class DocusignBuilder extends LightningElement {
