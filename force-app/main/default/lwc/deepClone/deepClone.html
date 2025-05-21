@@ -1,0 +1,105 @@
+<template>
+    <div class="slds-modal__header tropic-header">
+        <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Deep Clone Records</h1>
+    </div>
+
+    <div class="slds-modal__content" id="modal-content-id-1">
+        <lightning-record-edit-form object-api-name="Order" data-id="clone-record" record-id={recordId} onsubmit={submit}>
+            
+            <div class="slds-p-horizontal_small slds-p-vertical_x-small slds-m-bottom_small slds-text-heading_small" style="background-color: #f3f3f3; border-radius: 5px;">
+                Order Information
+            </div>
+            <div class="section">
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-input-field field-name="AccountId"></lightning-input-field>
+                        <lightning-input-field field-name="OpportunityId"></lightning-input-field>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-input-field field-name="Status"></lightning-input-field>
+                        <lightning-input-field field-name="QuoteId"></lightning-input-field>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slds-p-horizontal_small slds-p-vertical_x-small slds-m-bottom_small slds-text-heading_small" style="background-color: #f3f3f3; border-radius: 5px;">
+                Order Details
+            </div>
+            <div class="section">
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-input-field field-name="Customer_PO__c"></lightning-input-field>
+                        <lightning-input-field field-name="EffectiveDate"></lightning-input-field>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-input-field field-name="Processing_Team__c"></lightning-input-field>
+                    </div>
+                </div>
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-input-field field-name="Type"></lightning-input-field>
+                        <lightning-input-field field-name="TotalAmount"></lightning-input-field>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-input-field field-name="Delivery_Method__c"></lightning-input-field>
+                        <lightning-input-field field-name="Delivery_Window__c"></lightning-input-field>
+                    </div>
+                </div>
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col slds-size_1-of-1">
+                        <lightning-input-field field-name="Description"></lightning-input-field>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slds-p-horizontal_small slds-p-vertical_x-small slds-m-bottom_small slds-text-heading_small" style="background-color: #f3f3f3; border-radius: 5px;">
+                Contact Information
+            </div>
+            <div class="section">
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-input-field field-name="CustomerAuthorizedById"></lightning-input-field>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-input-field field-name="CompanyAuthorizedById"></lightning-input-field>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slds-p-horizontal_small slds-p-vertical_x-small slds-m-bottom_small slds-text-heading_small" style="background-color: #f3f3f3; border-radius: 5px;">
+                Address Information
+            </div>
+            <div class="section">
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-input-field field-name="BillToContactId"></lightning-input-field>
+                        <lightning-input-field field-name="BillingAddress"></lightning-input-field>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-input-field field-name="ShipToContactId"></lightning-input-field>
+                        <lightning-input-field field-name="ShippingAddress"></lightning-input-field>
+                    </div>
+                </div>
+            </div>
+
+            <lightning-button class="slds-hide" data-id="submit-button" type="submit" label="Save"></lightning-button>
+        </lightning-record-edit-form>
+    </div>
+
+    <footer class="slds-modal__footer" >
+        <lightning-button 
+            alternative-text="Back"
+            class="tropic slds-p-right_small"
+            variant="neutral"
+            label="Back"
+            onclick={back}>
+        </lightning-button>
+        <lightning-button 
+            alternative-text="Clone"
+            class="tropic"
+            variant="brand"
+            label="Clone"
+            onclick={clickSubmit}>
+        </lightning-button>
+    </footer>
+</template>

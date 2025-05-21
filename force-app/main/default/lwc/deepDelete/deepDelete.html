@@ -1,0 +1,37 @@
+<template>
+    <div class="slds-modal__header tropic-header">
+        <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Deleting Records</h1>
+    </div>
+
+    <div class="slds-modal__content" id="modal-content-id-1">
+        <div class="wizard-container">
+            <div class="wizard-row">
+                <p style="font-size: 2.5rem;">
+                    Warning!
+                </p>
+                <hr/>
+                <p style="font-size: 1.5rem;">
+                    All related children records to this parent record will be deleted if 
+                    you continue by clicking the delete button.
+                </p><br/>
+            </div>
+        </div>
+    </div>
+
+    <footer class="slds-modal__footer" >
+        <lightning-button 
+            alternative-text="Cancel"
+            class="tropic slds-p-right_small"
+            variant="neutral"
+            label="Cancel"
+            onclick={cancel}>
+        </lightning-button>
+        <lightning-button 
+            alternative-text="Delete"
+            class="tropic"
+            variant="brand"
+            label="Delete"
+            onclick={deleteRecords}>
+        </lightning-button>
+    </footer>
+</template>
