@@ -8,7 +8,6 @@
  **/
 import { LightningElement, wire } from 'lwc';
 import { publish, subscribe, unsubscribe, MessageContext, APPLICATION_SCOPE } from 'lightning/messageService';
-
 import { generateWeek, DAY_DATA, MONTHS, WEEKDAYS } from 'c/utility';
 import CALENDAR_NAVIGATION_CHANNEL from '@salesforce/messageChannel/CalendarNavigationChannel__c';
 
