@@ -1,42 +1,25 @@
 /**
- * @description       :
+ * HttpService.cls
+ *  
+ * A utility class for making HTTP requests, specifically designed for DocuSign integration.
+ * 
  * @author            : dalton@bluecitystudios.com
- * @group             :
- * @last modified on  : 10/3/2024
+ * @last modified on  : 9/15/2025
  * @last modified by  : dalton@bluecitystudios.com
- **/
+ * @todo
+ *   - Implement logging of HTTP requests and responses.
+ */
 public class HttpService {
-    public class CustomException extends Exception {}
 
-    // DocuSign Integration Credentials
-    private static final String ACCOUNT_ID = 'docusign_accountid';
-    private static final String BASE_URL = 'callout:named_credential';
-    // private static final String BASE_URL = 'https://na4.docusign.net';
-    private static final String USERNAME = 'example@mail.com;
-    private static final String PASSWORD = 'password12';
-
-    // private static final String SECRET_KEY = 'docusign_secret_key';
-    private static final String INTEGRATION_KEY = 'docusign_integration_key';
-    // private static final String TEMPLATE_ID = 'template_id';
-
-    // TODO:
-    // - Add Wrapper for Header values
-
-    public static HttpResponse runRequest(Map<String, String> auth, String endpoint, String payload, String method, String type) {
+    public static HttpResponse request(Map<String, String> auth, String endpoint, String method, String payload) {
         // Create an instance of HttpRequest
         HttpRequest req = new HttpRequest();
         req.setEndpoint(endpoint);
         req.setMethod(method);
-        req.setHeader('Content-Type', 'application/json');
+        for(String key : auth.keySet())
+            req.setHeader(key, auth.get(key));
 
-        // Set the Authorization header with username and password using Basic authentication
-        // Blob headerValue = Blob.valueOf(USERNAME + ':' + PASSWORD);
-        // String authorizationHeader = 'Basic ' + EncodingUtil.base64Encode(headerValue);
-        Blob headerValue = Blob.valueOf(INTEGRATION_KEY);
-        String authorizationHeader = 'Bearer ' + EncodingUtil.base64Encode(headerValue);
-        req.setHeader('Authorization', authorizationHeader);
-        if(payload != '')
-            req.setBody(payload);
+        if(payload != '') req.setBody(payload);
 
         // Create an instance of Http
         Http http = new Http();
@@ -45,29 +28,26 @@ public class HttpService {
             //  Send the request
             res = http.send(req);
 
-            // Create HttpRequest_Log
+            // Create HttpLog
             // log(method, endpoint, req.getBody(), res.getBody(), res.getStatusCode(), res.getStatus());
             return res;
         } catch (Exception e) {
-            throw new CustomException('Message :' +e.getMessage()+ ' :: Trace :' +e.getStackTraceString());
+            throw new AuraHandledException('Message :' +e.getMessage()+ ' :: Trace :' +e.getStackTraceString());
         }
     }
 
-    public static String stringResponse(Map<String, String> auth, String endpoint, String payload, String method, String type) {
-        HttpResponse res = runRequest(auth, endpoint, payload, method, type);
-        return res.getBody();
-    }
-
-    public static Blob blobResponse(Map<String, String> auth, String endpoint, String payload, String method, String type) {
-        HttpResponse res = runRequest(auth, endpoint, payload, method, type);
-        return res.getBodyAsBlob();
-    }
-
-    
-
     // @future(callout=true)
     // public static void log(String method, String endpoint, String requestPayload, String responsePayload, Integer statusCode, String status) {
-    //     System.enqueueJob(new HttpLogQueueable(method, endpoint, requestPayload, responsePayload, statusCode, status));
+    //     Http_Log__c log = new Http_Log__c();
+    //     log.Method__c = method;
+    //     log.Endpoint__c = endpoint;
+    //     log.Request_Payload__c = requestPayload;
+    //     log.Response_Payload__c = responsePayload;
+    //     log.Requested_By__c = UserInfo.getUserId();
+    //     log.Request_Date__c = DateTime.now();
+    //     log.Status_Code__c = statusCode;
+    //     log.Status__c = status;
+    //     insert log;
     // }
 }
 
