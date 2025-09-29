@@ -1,6 +1,6 @@
 /**
  * A utility class to call builder profile for screen to render Lightning Web
- * Components dynamically
+ * Components dynamically.
  * 
  * @author            : dalton@bluecitystudios.com
  * @last modified on  : 9/15/2025
