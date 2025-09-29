@@ -13,7 +13,7 @@ import { CloseActionScreenEvent } from 'lightning/actions';
 
 // Apex Classes
 import getRelatedRecords from '@salesforce/apex/Service.getRelatedAllRecords';
-// import deleteRecords from '@salesforce/apex/Service.deleteRecords';
+import deepDelete from '@salesforce/apex/Service.deepDelete';
 
 // Resource Imports
 import TROPIC_STYLES from '@salesforce/resourceUrl/Tropic_Styles';
@@ -47,12 +47,12 @@ export default class DeepDelete extends NavigationMixin(LightningElement) {
     }
 
     deleteRecords() {
-        // deleteRecords({ records: this.relatedRecords }).then(result => {
-        //     this.dispatchEvent(new CloseActionScreenEvent());
-        //     notification('Success', 'You have successfully deleted all records.', 'success', 5000);
-        // }).catch(error => {
-        //     console.error('Error:', error);
-        //     notification('Error', JSON.stringify(error), 'error', 5000);
-        // });
+        deepDelete({ records: this.relatedRecords }).then(result => {
+            this.dispatchEvent(new CloseActionScreenEvent());
+            notification('Success', 'You have successfully deleted all records.', 'success', 5000);
+        }).catch(error => {
+            console.error('Error:', error);
+            notification('Error', JSON.stringify(error), 'error', 5000);
+        });
     }
 }
