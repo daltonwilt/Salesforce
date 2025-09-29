@@ -1,10 +1,12 @@
 /**
- * @description       : General Service class for handling common operations
+ * A service class for generic use case apex methods
+ * 
  * @author            : dalton@bluecitystudios.com
- * @group             :
- * @last modified on  : 10/3/2024
+ * @last modified on  : 9/15/2025
  * @last modified by  : dalton@bluecitystudios.com
- **/
+ * @todo
+ *   - Implement logging of HTTP requests and responses.
+ */
 public without sharing class Service {
     public Service() {}
 
