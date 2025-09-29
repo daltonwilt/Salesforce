@@ -1,11 +1,12 @@
 /**
- * @description       : Override deletion component in order to bypass standard 
-*                       Salesforce Validations as well as choosing which branches to delete
+ * Override delete component in order to bypass standard Salesforce
+ * validations as well as choosing which branches to delete.
+ * 
  * @author            : dalton@bluecitystudios.com
- * @group             :
- * @last modified on  : 10/3/2024
+ * @last modified on  : 9/15/2025
  * @last modified by  : dalton@bluecitystudios.com
- **/
+ * @todo
+ */
 import { LightningElement, api } from 'lwc';
 import { loadStyle } from 'lightning/platformResourceLoader';
 import { NavigationMixin } from 'lightning/navigation';
