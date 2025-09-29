@@ -1,6 +1,5 @@
 /**
- * Override delete component in order to bypass standard Salesforce
- * validations as well as choosing which branches to delete.
+ * Lookup field type for data table since they are native inputs.
  * 
  * @author            : dalton@bluecitystudios.com
  * @last modified on  : 9/15/2025
