@@ -1,10 +1,11 @@
 /**
- * @description       :
+ * Main component for the DocuSign builder components.
+ * 
  * @author            : dalton@bluecitystudios.com
- * @group             :
- * @last modified on  : 10/3/2024
+ * @last modified on  : 9/15/2025
  * @last modified by  : dalton@bluecitystudios.com
- **/
+ * @todo
+ */
 import { LightningElement } from 'lwc';
 import { loadStyle } from 'lightning/platformResourceLoader';
 
