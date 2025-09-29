@@ -1,5 +1,5 @@
 /**
- * A service class for generic use case apex methods
+ * A service class for generic use case apex methods.
  * 
  * @author            : dalton@bluecitystudios.com
  * @last modified on  : 9/15/2025
