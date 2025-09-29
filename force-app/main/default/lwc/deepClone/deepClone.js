@@ -15,20 +15,11 @@ import { notification } from 'c/utils';
 // Apex Classes
 import deepClone from '@salesforce/apex/DeepCloneService.deepClone';
 
-// Resource Imports
-import tropicStyle from '@salesforce/resourceUrl/Tropic_Styles';
-
 export default class DeepClone extends NavigationMixin(LightningElement) {
     @api recordId;
     cloneMessage;
 
-    tropicStyle = tropicStyle;
-    constructor() {
-        super();
-        Promise.all([
-            loadStyle(this, `${this.tropicStyle}`)
-        ]);
-    }
+    constructor() {}
 
     back(e) {
         e.preventDefault();
