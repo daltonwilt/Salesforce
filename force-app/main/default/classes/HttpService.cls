@@ -1,6 +1,4 @@
 /**
- * HttpService.cls
- *  
  * A utility class for making HTTP requests, specifically designed for DocuSign integration.
  * 
  * @author            : dalton@bluecitystudios.com
