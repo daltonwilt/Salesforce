@@ -1,10 +1,12 @@
 /**
- * @description       : Utilized for initializing mock data in regards to HTTP Requests
+ * A utility class for creating a mock http request.
+ * 
  * @author            : dalton@bluecitystudios.com
- * @group             :
- * @last modified on  : 10/3/2024
+ * @last modified on  : 9/15/2025
  * @last modified by  : dalton@bluecitystudios.com
- **/
+ * @todo
+ *   - Implement logging of HTTP requests and responses.
+ */
 @isTest
 global class TestMockFactory implements HttpCalloutMock {
 
