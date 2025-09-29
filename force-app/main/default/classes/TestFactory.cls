@@ -1,10 +1,12 @@
 /**
- * @description       : Test Factory is used for all Test classes for initializing data
+ * A utility class for building needed data when creating your test classes.
+ * 
  * @author            : dalton@bluecitystudios.com
- * @group             :
- * @last modified on  : 10/3/2024
+ * @last modified on  : 9/15/2025
  * @last modified by  : dalton@bluecitystudios.com
- **/
+ * @todo
+ *   - Implement logging of HTTP requests and responses.
+ */
 @isTest
 global class TestFactory {
 
