@@ -1,10 +1,13 @@
 /**
- * @description       : General utility class for creating SObjects and deserializing JS Objects
+ * A generic utility class that contains all worker methods that may be needed
+ * from your service/utility/controller classes.
+ * 
  * @author            : dalton@bluecitystudios.com
- * @group             :
- * @last modified on  : 5/16/2025
+ * @last modified on  : 9/15/2025
  * @last modified by  : dalton@bluecitystudios.com
- **/
+ * @todo
+ *   - Implement logging of HTTP requests and responses.
+ */
 public without sharing class Utility {
     public class DateException extends Exception {}
 
