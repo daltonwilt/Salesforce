@@ -1,10 +1,11 @@
 /**
- * @description       : Allow for full cloning of related tree records instead of just the parent
+ * Allow for full cloning of related tree branches instead of just the parent.
+ * 
  * @author            : dalton@bluecitystudios.com
- * @group             :
- * @last modified on  : 10/3/2024
+ * @last modified on  : 9/15/2025
  * @last modified by  : dalton@bluecitystudios.com
- **/
+ * @todo
+ */
 import { LightningElement, api } from 'lwc';
 import { loadStyle } from 'lightning/platformResourceLoader';
 import { NavigationMixin } from 'lightning/navigation';
