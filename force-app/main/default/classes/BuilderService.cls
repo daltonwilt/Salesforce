@@ -6,7 +6,6 @@
  * @last modified on  : 9/15/2025
  * @last modified by  : dalton@bluecitystudios.com
  * @todo
- *   - Implement logging of HTTP requests and responses.
  */
 public with sharing class BuilderService {
     public BuilderService() {}
