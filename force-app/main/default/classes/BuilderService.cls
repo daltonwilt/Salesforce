@@ -1,10 +1,13 @@
 /**
- * @description       :
+ * A utility class to call builder profile for screen to render Lightning Web
+ * Components dynamically
+ * 
  * @author            : dalton@bluecitystudios.com
- * @group             :
- * @last modified on  : 10/3/2024
+ * @last modified on  : 9/15/2025
  * @last modified by  : dalton@bluecitystudios.com
- **/
+ * @todo
+ *   - Implement logging of HTTP requests and responses.
+ */
 public with sharing class BuilderService {
     public BuilderService() {}
 
