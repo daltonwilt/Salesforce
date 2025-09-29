@@ -1,12 +1,13 @@
 /**
- * @description       : 
+ * Override delete component in order to bypass standard Salesforce
+ * validations as well as choosing which branches to delete.
+ * 
  * @author            : dalton@bluecitystudios.com
- * @group             :
- * @last modified on  : 4/30/2025
+ * @last modified on  : 9/15/2025
  * @last modified by  : dalton@bluecitystudios.com
- * @Todo
+ * @todo
  * - Work on refactoring this component
- **/
+ */
 import { LightningElement, api } from 'lwc';
 import { NavigationMixin } from 'lightning/navigation';
 
