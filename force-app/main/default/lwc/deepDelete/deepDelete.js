@@ -16,22 +16,13 @@ import { CloseActionScreenEvent } from 'lightning/actions';
 import getRelatedRecords from '@salesforce/apex/Service.getRelatedAllRecords';
 import deepDelete from '@salesforce/apex/Service.deepDelete';
 
-// Resource Imports
-import TROPIC_STYLES from '@salesforce/resourceUrl/Tropic_Styles';
-
 export default class DeepDelete extends NavigationMixin(LightningElement) {
     @api recordId;
 
     isModal = false;
     relatedRecords;
 
-    tropicStyle = TROPIC_STYLES;
-    constructor() {
-        super();
-        Promise.all([
-            loadStyle(this, `${this.tropicStyle}`)
-        ]);
-    }
+    constructor() {}
 
     connectedCallback() {
         getRelatedRecords({ id: this.recordId }).then(result => {
