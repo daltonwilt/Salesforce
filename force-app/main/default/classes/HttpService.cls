@@ -30,7 +30,8 @@ public class HttpService {
             // log(method, endpoint, req.getBody(), res.getBody(), res.getStatusCode(), res.getStatus());
             return res;
         } catch (Exception e) {
-            throw new AuraHandledException('Message :' +e.getMessage()+ ' :: Trace :' +e.getStackTraceString());
+            System.debug('Message :' +e.getMessage()+ ' :: Trace :' +e.getStackTraceString());
+            return null;
         }
     }
 
