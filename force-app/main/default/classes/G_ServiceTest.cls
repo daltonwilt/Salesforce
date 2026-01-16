@@ -1,5 +1,5 @@
 @isTest
-private class ServiceTest {
+private class G_ServiceTest {
 	@isTest
     private static void test_search(){
         Map<String,Object> resultMap = TestFactory.generateAccount();
