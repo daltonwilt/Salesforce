@@ -1,5 +1,5 @@
 @isTest
-private class UtilityTest {
+private class G_UtilityTest {
 	@isTest
     private static void test_createSObject(){
         Map<String,Object> resultMap = TestFactory.generateAccount();
