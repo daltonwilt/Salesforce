@@ -7,7 +7,7 @@
  * @todo
  *   - Implement logging of HTTP requests and responses.
  */
-public class HttpService {
+public class G_HttpService {
 
     public static HttpResponse request(Map<String, String> auth, String endpoint, String method, String payload) {
         // Create an instance of HttpRequest
