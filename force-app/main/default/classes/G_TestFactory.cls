@@ -7,7 +7,7 @@
  * @todo
  */
 @isTest
-global class TestFactory {
+global class G_TestFactory {
 
     public static String mockResponse = '{"message":"Success Response", "data":[{}]}';
     public static Integer mockStatusCode = 200;
