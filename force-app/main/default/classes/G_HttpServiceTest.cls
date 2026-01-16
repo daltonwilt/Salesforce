@@ -1,5 +1,5 @@
 @isTest
-public class HttpServiceTest {
+public class G_HttpServiceTest {
 
     @isTest
     static void testRequestSuccess() {
