@@ -7,7 +7,7 @@
  * @todo
  */
 @isTest
-global class TestMockFactory implements HttpCalloutMock {
+global class G_TestMockFactory implements HttpCalloutMock {
 
     public Integer status_code {get; set;}
 
