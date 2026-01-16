@@ -2,9 +2,9 @@
  * A utility class to call builder profile for screen to render Lightning Web
  * Components dynamically.
  * 
- * @author            : dalton@bluecitystudios.com
+ * @author            : dalton@outlook.com
  * @last modified on  : 9/15/2025
- * @last modified by  : dalton@bluecitystudios.com
+ * @last modified by  : dalton@outlook.com
  * @todo
  */
 public with sharing class BuilderService {
