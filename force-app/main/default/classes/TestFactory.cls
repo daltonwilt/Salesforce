@@ -1,9 +1,9 @@
 /**
  * A utility class for building needed data when creating your test classes.
  * 
- * @author            : dalton@bluecitystudios.com
+ * @author            : dalton@outlook.com
  * @last modified on  : 9/15/2025
- * @last modified by  : dalton@bluecitystudios.com
+ * @last modified by  : dalton@outlook.com
  * @todo
  */
 @isTest
