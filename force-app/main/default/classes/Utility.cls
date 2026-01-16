@@ -2,12 +2,12 @@
  * A generic utility class that contains all worker methods that may be needed
  * from your service/utility/controller classes.
  * 
- * @author            : dalton@bluecitystudios.com
+ * @author            : dalton@outlook.com
  * @last modified on  : 9/15/2025
- * @last modified by  : dalton@bluecitystudios.com
+ * @last modified by  : dalton@outlook.com
  * @todo
  */
-public without sharing class Utility {
+public without sharing class G_Utility {
     public class DateException extends Exception {}
 
     /**
