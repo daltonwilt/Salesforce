@@ -7,7 +7,7 @@
  * @todo
  *   - Implement logging of HTTP requests and responses.
  */
-public without sharing class Service {
+public without sharing class G_Service {
     public Service() {}
 
     /**
