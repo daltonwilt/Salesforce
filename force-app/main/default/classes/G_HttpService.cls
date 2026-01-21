@@ -1,12 +1,12 @@
-/**
- * A utility class for making HTTP requests, specifically designed for DocuSign integration.
- * 
- * @author            : dalton@outlook.com
- * @last modified on  : 9/15/2025
- * @last modified by  : dalton@outlook.com
- * @todo
- *   - Implement logging of HTTP requests and responses.
- */
+//============================================
+// @description       : A utility class for making HTTP requests, specifically designed for DocuSign integration.
+// @author            : dalton@outlook.com
+// @last modified on  : 9/15/2025
+// @last modified by  : dalton@outlook.com
+// @todo
+//    - Implement logging of HTTP requests and responses.
+//============================================
+
 public class G_HttpService {
 
     public static HttpResponse request(Map<String, String> auth, String endpoint, String method, String payload) {
