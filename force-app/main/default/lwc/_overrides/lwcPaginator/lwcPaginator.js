@@ -1,9 +1,8 @@
 /**
  * @description       : 
- * @author            : dalton@bluecitystudios.com
- * @group             :
+ * @author            : dalton@outlook.com
  * @last modified on  : 4/30/2025
- * @last modified by  : dalton@bluecitystudios.com
+ * @last modified by  : dalton@outlook.com
  * @Todo
  **/
 import { LightningElement, api } from 'lwc';
