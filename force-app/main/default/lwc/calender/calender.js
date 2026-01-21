@@ -1,11 +1,11 @@
-/**
- * @description       : 
- * @author            : dalton@bluecitystudios.com
- * @group             :
- * @last modified on  : 10/3/2024
- * @last modified by  : dalton@bluecitystudios.com
- * @Todo
- **/
+//============================================
+// @description       :
+// @author            : dalton@outlook.com
+// @last modified on  : 9/15/2025
+// @last modified by  : dalton@outlook.com
+// @todo
+//============================================
+
 import { LightningElement } from 'lwc';
 
 export default class Calendar extends LightningElement {}
