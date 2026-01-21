@@ -8,7 +8,7 @@
 
 import { LightningElement, api } from 'lwc';
 
-export default class ProgressState extends LightningElement {
+export default class Progress extends LightningElement {
     @api message;
     @api progress;
     @api modal;
