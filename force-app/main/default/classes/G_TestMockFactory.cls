@@ -1,11 +1,12 @@
-/**
- * A utility class for creating a mock http request.
- * 
- * @author            : dalton@outlook.com
- * @last modified on  : 9/15/2025
- * @last modified by  : dalton@outlook.com
- * @todo
- */
+//============================================
+// @description       : A utility class for creating a mock http request.
+// @author            : dalton@outlook.com
+// @last modified on  : 9/15/2025
+// @last modified by  : dalton@outlook.com
+// @todo
+//    - Potentially added configuration for passing mock body and header as well
+//============================================
+
 @isTest
 global class G_TestMockFactory implements HttpCalloutMock {
 
