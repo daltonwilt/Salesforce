@@ -1,11 +1,11 @@
-/**
- * Utility JS for reausable methods.
- * 
- * @author            : dalton@bluecitystudios.com
- * @last modified on  : 9/15/2025
- * @last modified by  : dalton@bluecitystudios.com
- * @todo
- */
+//============================================
+// @description       : Utility JS for reausable methods.
+// @author            : dalton@outlook.com
+// @last modified on  : 9/15/2025
+// @last modified by  : dalton@outlook.com
+// @todo
+//============================================
+
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 
 //==============================================================================
