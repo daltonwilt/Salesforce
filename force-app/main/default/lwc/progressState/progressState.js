@@ -1,11 +1,11 @@
-/**
- * Simple progression UI display when rerending pages or get/set data.
- * 
- * @author            : dalton@bluecitystudios.com
- * @last modified on  : 9/15/2025
- * @last modified by  : dalton@bluecitystudios.com
- * @todo
- */
+//============================================
+// @description       : Simple progression UI display when rerending pages or get/set data.
+// @author            : dalton@outlook.com
+// @last modified on  : 9/15/2025
+// @last modified by  : dalton@outlook.com
+// @todo
+//============================================
+
 import { LightningElement, api } from 'lwc';
 
 export default class ProgressState extends LightningElement {
