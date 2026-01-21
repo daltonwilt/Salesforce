@@ -1,5 +1,5 @@
 //============================================
-// @description       : Override delete component in order to bypass standard Salesforce validations as well as choosing which branches to delete.
+// @description       : DocuSign Rest API/Credential configuration component
 // @author            : dalton@outlook.com
 // @last modified on  : 9/15/2025
 // @last modified by  : dalton@outlook.com
