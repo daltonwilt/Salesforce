@@ -1,10 +1,10 @@
 /**
  * @description       : Serves as an override to standard lightning-datatable since it just sucks
  *                      and we need it to do more than it offers
- * @author            : dalton@bluecitystudios.com
+ * @author            : dalton@outlook.com
  * @group             :
  * @last modified on  : 4/30/2025
- * @last modified by  : dalton@bluecitystudios.com
+ * @last modified by  : dalton@outlook.com
  * @Todo
  **/
 import { LightningElement, api } from 'lwc';
