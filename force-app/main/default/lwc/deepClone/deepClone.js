@@ -1,11 +1,11 @@
-/**
- * Allow for full cloning of related tree branches instead of just the parent.
- * 
- * @author            : dalton@bluecitystudios.com
- * @last modified on  : 9/15/2025
- * @last modified by  : dalton@bluecitystudios.com
- * @todo
- */
+//============================================
+// @description       :
+// @author            : dalton@outlook.com
+// @last modified on  : 9/15/2025
+// @last modified by  : dalton@outlook.com
+// @todo
+//============================================
+
 import { LightningElement, api } from 'lwc';
 import { loadStyle } from 'lightning/platformResourceLoader';
 import { NavigationMixin } from 'lightning/navigation';
