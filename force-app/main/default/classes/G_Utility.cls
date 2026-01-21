@@ -1,12 +1,12 @@
-/**
- * A generic utility class that contains all worker methods that may be needed
- * from your service/utility/controller classes.
- * 
- * @author            : dalton@outlook.com
- * @last modified on  : 9/15/2025
- * @last modified by  : dalton@outlook.com
- * @todo
- */
+//============================================
+// @description       : A generic utility class that contains all worker methods that may be needed from your service/utility/controller classes.
+// @author            : dalton@outlook.com
+// @last modified on  : 9/15/2025
+// @last modified by  : dalton@outlook.com
+// @todo
+//    - Finish field retrieval for SOQL and create utilities for SOSL
+//============================================
+
 public without sharing class G_Utility {
     public class DateException extends Exception {}
 
