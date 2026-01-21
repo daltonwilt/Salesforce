@@ -1,9 +1,8 @@
 /**
  * @description       :
- * @author            : dalton@bluecitystudios.com
- * @group             :
+ * @author            : dalton@outlook.com
  * @last modified on  : 10/3/2024
- * @last modified by  : dalton@bluecitystudios.com
+ * @last modified by  : dalton@outlook.com
 *  @todo:
 *   - Add custom events for:
 *       - onpagination
