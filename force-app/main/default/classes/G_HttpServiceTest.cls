@@ -17,7 +17,7 @@ public class G_HttpServiceTest {
 
         // Perform test
         Test.startTest();
-        HttpResponse res = HttpService.request(auth, endpoint, method, payload);
+        HttpResponse res = G_HttpService.request(auth, endpoint, method, payload);
         Test.stopTest();
     }
 
@@ -35,7 +35,7 @@ public class G_HttpServiceTest {
         String payload = '';
 
         Test.startTest();
-        HttpService.request(auth, endpoint, method, payload);
+        G_HttpService.request(auth, endpoint, method, payload);
         Test.stopTest();
     }
 }
