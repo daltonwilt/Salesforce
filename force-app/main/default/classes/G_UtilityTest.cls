@@ -44,6 +44,6 @@ private class G_UtilityTest {
 
     @isTest
     private static void test_formatFields(){
-        G_Utility.formatFields(Utility.getDescribeFields('Account'));
+        G_Utility.formatFields(G_Utility.getDescribeFields('Account'));
     }
 }
