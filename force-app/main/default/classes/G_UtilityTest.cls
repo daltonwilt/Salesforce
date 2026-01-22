@@ -12,7 +12,7 @@ private class G_UtilityTest {
         Map<String,Object> resultMap = G_TestFactory.generateAccount();
         Account a = (Account)resultMap.get('result');
         List<Account> accs = new List<Account>{a};
-        UG_tility.createSObjects(JSON.deserializeUntyped(JSON.serialize(accs)), 'Account');
+        G_Utility.createSObjects(JSON.deserializeUntyped(JSON.serialize(accs)), 'Account');
     }
 
     @isTest
