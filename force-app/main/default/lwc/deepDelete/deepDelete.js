@@ -19,14 +19,14 @@ export default class DeepDelete extends NavigationMixin(LightningElement) {
     @api recordId;
 
     isModal = false;
-    relatedRecords;
+    records;
 
     constructor() {}
 
     connectedCallback() {
         getRelatedRecords({ id: this.recordId }).then(result => {
-            this.relatedRecords = result;
-            console.log('Related Records:', JSON.stringify(this.relatedRecords));
+            this.records = result;
+            console.log('Related Records:', JSON.stringify(this.records));
         }).catch(error => {
             console.error('Error:', error);
         });
@@ -37,8 +37,8 @@ export default class DeepDelete extends NavigationMixin(LightningElement) {
         this.dispatchEvent(new CloseActionScreenEvent());
     }
 
-    deleteRecords() {
-        deepDelete({ records: this.relatedRecords }).then(result => {
+    delete() {
+        deepDelete({ records: this.records }).then(result => {
             this.dispatchEvent(new CloseActionScreenEvent());
             notification('Success', 'You have successfully deleted all records.', 'success', 5000);
         }).catch(error => {
